@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message TaskMessage {
+  string id = 1;
+  string operation = 2;
+  int32 operand1 = 3;
+  int32 operand2 = 4;
+  int32 timeout_seconds = 5;
+}
+
+message ResultMessage {
+  string id = 1;
+  string status = 2;
+  string description = 3;
+  int32 result = 4;
+}

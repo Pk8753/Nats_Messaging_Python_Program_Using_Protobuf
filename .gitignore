@@ -1,0 +1,6 @@
+.pytest_cache
+src/.pytest_cache
+venv
+.DS_Store
+.idea/
+

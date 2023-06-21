@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  nats-server:
+    image: nats:latest
+    ports:
+      - '0.0.0.0:4222:4222'
+
+  controller:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - nats-server
+
+  worker:
+    build:
+      context: .
+      dockerfile: worker.Dockerfile
+    depends_on:
+      - nats-server
+
+  testrun:
+    build:
+      context: .
+      dockerfile: testrun.Dockerfile
+    depends_on:
+      - nats-server
